@@ -1,0 +1,356 @@
+local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
+local win = lib:Window("Ski hub",Color3.fromRGB(44, 120, 224), Enum.KeyCode.RightControl)
+local com = win:Tab("Main")
+com:Label("Game supported Life in Prison")
+com:Slider("Gravity",0,500,196, function(t)
+    workspace.Gravity = t
+end)
+com:Button("Fly on", function()
+    lib:Notification("Notification", "Use Q/E to fly", "OK")
+    _G.SpeedBypass = false -- Set to false and re-execute to disable
+    _G.JumpBypass = false -- Set to false and re-execute to disable
+    _G.FlyBypass = true  -- Set to false and reset character to disable | Q/E to move
+
+    local a=game.Players.LocalPlayer;local b=a.Character;local c=b and b:WaitForChild("Humanoid")local d=Instance.new("Part",workspace)local e=Instance.new("BodyGyro",d)local f=Instance.new("BodyVelocity",d)local g=Instance.new("Weld",d)local h=game:GetService("UserInputService")local c=b and b:WaitForChild("Humanoid")local i=game:GetService("VirtualInputManager")i:SendKeyEvent(false,"Space",false,game)workspace.Gravity=196;c.JumpPower=50;while _G.SpeedBypass do task.wait()workspace.Gravity=10000;c.JumpPower=0.5;i:SendKeyEvent(true,"Space",false,game)b:TranslateBy(c.MoveDirection*.5)b:TranslateBy(c.MoveDirection)end;while _G.JumpBypass do task.wait()c.JumpPower=100;workspace.Gravity=0.9;task.wait(.2)workspace.Gravity=60 end;d.Transparency=1;d.CanCollide=false;g.Part0=d;d.Size=Vector3.new(2,2,1)e.MaxTorque=Vector3.new(9e+09,9e+09,9e+09)f.MaxForce=Vector3.new(9e+09,9e+09,9e+09)e.P=tonumber("90000")f.P=tonumber("1250")e.D=tonumber("90000")c.Died:Connect(function()d:Destroy()end)local j=Enum.KeyCode.E;local k=Enum.KeyCode.Q;h.InputBegan:Connect(function(l,m)if m then return end;if l.KeyCode==j then _G.Down=false;_G.Up=true;while _G.Up do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,5,q)f.Velocity=r end elseif l.KeyCode==k then _G.Up=false;_G.Down=true;while _G.Down do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,-5,q)f.Velocity=r end end end)while _G.FlyBypass do task.wait()g.Part1=b:WaitForChild("HumanoidRootPart")d.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;e.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;f.Velocity=Vector3.New(50,15,50)d.Rotation=b:WaitForChild("HumanoidRootPart").Rotation end
+end)
+com:Button("Fly off", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+com:Button("Speed on", function()
+    _G.SpeedBypass = true -- Set to false and re-execute to disable
+    _G.JumpBypass = false -- Set to false and re-execute to disable
+    _G.FlyBypass = false  -- Set to false and reset character to disable | Q/E to move
+
+    local a=game.Players.LocalPlayer;local b=a.Character;local c=b and b:WaitForChild("Humanoid")local d=Instance.new("Part",workspace)local e=Instance.new("BodyGyro",d)local f=Instance.new("BodyVelocity",d)local g=Instance.new("Weld",d)local h=game:GetService("UserInputService")local c=b and b:WaitForChild("Humanoid")local i=game:GetService("VirtualInputManager")i:SendKeyEvent(false,"Space",false,game)workspace.Gravity=196;c.JumpPower=50;while _G.SpeedBypass do task.wait()workspace.Gravity=10000;c.JumpPower=0.5;i:SendKeyEvent(true,"Space",false,game)b:TranslateBy(c.MoveDirection*.5)b:TranslateBy(c.MoveDirection)end;while _G.JumpBypass do task.wait()c.JumpPower=100;workspace.Gravity=0.9;task.wait(.2)workspace.Gravity=60 end;d.Transparency=1;d.CanCollide=false;g.Part0=d;d.Size=Vector3.new(2,2,1)e.MaxTorque=Vector3.new(9e+09,9e+09,9e+09)f.MaxForce=Vector3.new(9e+09,9e+09,9e+09)e.P=tonumber("90000")f.P=tonumber("1250")e.D=tonumber("90000")c.Died:Connect(function()d:Destroy()end)local j=Enum.KeyCode.E;local k=Enum.KeyCode.Q;h.InputBegan:Connect(function(l,m)if m then return end;if l.KeyCode==j then _G.Down=false;_G.Up=true;while _G.Up do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,5,q)f.Velocity=r end elseif l.KeyCode==k then _G.Up=false;_G.Down=true;while _G.Down do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,-5,q)f.Velocity=r end end end)while _G.FlyBypass do task.wait()g.Part1=b:WaitForChild("HumanoidRootPart")d.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;e.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;f.Velocity=Vector3.New(50,15,50)d.Rotation=b:WaitForChild("HumanoidRootPart").Rotation end
+end)
+com:Button("Speed off", function()
+    _G.SpeedBypass = false -- Set to false and re-execute to disable
+    _G.JumpBypass = false -- Set to false and re-execute to disable
+    _G.FlyBypass = false  -- Set to false and reset character to disable | Q/E to move
+
+    local a=game.Players.LocalPlayer;local b=a.Character;local c=b and b:WaitForChild("Humanoid")local d=Instance.new("Part",workspace)local e=Instance.new("BodyGyro",d)local f=Instance.new("BodyVelocity",d)local g=Instance.new("Weld",d)local h=game:GetService("UserInputService")local c=b and b:WaitForChild("Humanoid")local i=game:GetService("VirtualInputManager")i:SendKeyEvent(false,"Space",false,game)workspace.Gravity=196;c.JumpPower=50;while _G.SpeedBypass do task.wait()workspace.Gravity=10000;c.JumpPower=0.5;i:SendKeyEvent(true,"Space",false,game)b:TranslateBy(c.MoveDirection*.5)b:TranslateBy(c.MoveDirection)end;while _G.JumpBypass do task.wait()c.JumpPower=100;workspace.Gravity=0.9;task.wait(.2)workspace.Gravity=60 end;d.Transparency=1;d.CanCollide=false;g.Part0=d;d.Size=Vector3.new(2,2,1)e.MaxTorque=Vector3.new(9e+09,9e+09,9e+09)f.MaxForce=Vector3.new(9e+09,9e+09,9e+09)e.P=tonumber("90000")f.P=tonumber("1250")e.D=tonumber("90000")c.Died:Connect(function()d:Destroy()end)local j=Enum.KeyCode.E;local k=Enum.KeyCode.Q;h.InputBegan:Connect(function(l,m)if m then return end;if l.KeyCode==j then _G.Down=false;_G.Up=true;while _G.Up do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,5,q)f.Velocity=r end elseif l.KeyCode==k then _G.Up=false;_G.Down=true;while _G.Down do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,-5,q)f.Velocity=r end end end)while _G.FlyBypass do task.wait()g.Part1=b:WaitForChild("HumanoidRootPart")d.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;e.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;f.Velocity=Vector3.New(50,15,50)d.Rotation=b:WaitForChild("HumanoidRootPart").Rotation end
+end)
+com:Button("Jumppower on", function()
+    _G.SpeedBypass = false -- Set to false and re-execute to disable
+    _G.JumpBypass = true -- Set to false and re-execute to disable
+    _G.FlyBypass = false  -- Set to false and reset character to disable | Q/E to move
+
+    local a=game.Players.LocalPlayer;local b=a.Character;local c=b and b:WaitForChild("Humanoid")local d=Instance.new("Part",workspace)local e=Instance.new("BodyGyro",d)local f=Instance.new("BodyVelocity",d)local g=Instance.new("Weld",d)local h=game:GetService("UserInputService")local c=b and b:WaitForChild("Humanoid")local i=game:GetService("VirtualInputManager")i:SendKeyEvent(false,"Space",false,game)workspace.Gravity=196;c.JumpPower=50;while _G.SpeedBypass do task.wait()workspace.Gravity=10000;c.JumpPower=0.5;i:SendKeyEvent(true,"Space",false,game)b:TranslateBy(c.MoveDirection*.5)b:TranslateBy(c.MoveDirection)end;while _G.JumpBypass do task.wait()c.JumpPower=100;workspace.Gravity=0.9;task.wait(.2)workspace.Gravity=60 end;d.Transparency=1;d.CanCollide=false;g.Part0=d;d.Size=Vector3.new(2,2,1)e.MaxTorque=Vector3.new(9e+09,9e+09,9e+09)f.MaxForce=Vector3.new(9e+09,9e+09,9e+09)e.P=tonumber("90000")f.P=tonumber("1250")e.D=tonumber("90000")c.Died:Connect(function()d:Destroy()end)local j=Enum.KeyCode.E;local k=Enum.KeyCode.Q;h.InputBegan:Connect(function(l,m)if m then return end;if l.KeyCode==j then _G.Down=false;_G.Up=true;while _G.Up do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,5,q)f.Velocity=r end elseif l.KeyCode==k then _G.Up=false;_G.Down=true;while _G.Down do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,-5,q)f.Velocity=r end end end)while _G.FlyBypass do task.wait()g.Part1=b:WaitForChild("HumanoidRootPart")d.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;e.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;f.Velocity=Vector3.New(50,15,50)d.Rotation=b:WaitForChild("HumanoidRootPart").Rotation end
+end)
+com:Button("Jumppower off", function()
+    _G.SpeedBypass = false -- Set to false and re-execute to disable
+    _G.JumpBypass = false -- Set to false and re-execute to disable
+    _G.FlyBypass = false  -- Set to false and reset character to disable | Q/E to move
+
+    local a=game.Players.LocalPlayer;local b=a.Character;local c=b and b:WaitForChild("Humanoid")local d=Instance.new("Part",workspace)local e=Instance.new("BodyGyro",d)local f=Instance.new("BodyVelocity",d)local g=Instance.new("Weld",d)local h=game:GetService("UserInputService")local c=b and b:WaitForChild("Humanoid")local i=game:GetService("VirtualInputManager")i:SendKeyEvent(false,"Space",false,game)workspace.Gravity=196;c.JumpPower=50;while _G.SpeedBypass do task.wait()workspace.Gravity=10000;c.JumpPower=0.5;i:SendKeyEvent(true,"Space",false,game)b:TranslateBy(c.MoveDirection*.5)b:TranslateBy(c.MoveDirection)end;while _G.JumpBypass do task.wait()c.JumpPower=100;workspace.Gravity=0.9;task.wait(.2)workspace.Gravity=60 end;d.Transparency=1;d.CanCollide=false;g.Part0=d;d.Size=Vector3.new(2,2,1)e.MaxTorque=Vector3.new(9e+09,9e+09,9e+09)f.MaxForce=Vector3.new(9e+09,9e+09,9e+09)e.P=tonumber("90000")f.P=tonumber("1250")e.D=tonumber("90000")c.Died:Connect(function()d:Destroy()end)local j=Enum.KeyCode.E;local k=Enum.KeyCode.Q;h.InputBegan:Connect(function(l,m)if m then return end;if l.KeyCode==j then _G.Down=false;_G.Up=true;while _G.Up do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,5,q)f.Velocity=r end elseif l.KeyCode==k then _G.Up=false;_G.Down=true;while _G.Down do task.wait()local n=b:WaitForChild("HumanoidRootPart").CFrame.LookVector*50;local o,p,q=n.X,n.Y,n.Z;local r=Vector3.new(o,-5,q)f.Velocity=r end end end)while _G.FlyBypass do task.wait()g.Part1=b:WaitForChild("HumanoidRootPart")d.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;e.CFrame=b:WaitForChild("HumanoidRootPart").CFrame;f.Velocity=Vector3.New(50,15,50)d.Rotation=b:WaitForChild("HumanoidRootPart").Rotation end
+end)
+com:Button("Walkspeed 23", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 23
+end)
+com:Toggle("Xray",false, function(t)
+    if t then
+        for i,v in pairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") and not v.Parent.Parent:FindFirstChild("Humanoid") then
+                v.Transparency = v.Transparency + 0.5
+            end
+        end
+    else
+        for i,v in pairs(workspace:GetDescendants()) do
+            if v:IsA("BasePart") and not v.Parent.Parent:FindFirstChild("Humanoid") then
+                v.Transparency = v.Transparency - 0.5
+            end
+        end
+    end
+end)
+com:Slider("FOV",0,120,120, function(t)
+    workspace.Camera.FieldOfView = t
+end)
+com:Button("Noclip", function()
+    spawn(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+                setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+            end
+        end)
+    end)
+end) 
+com:Button("Noclip off", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+local com = win:Tab("Visuals")
+com:Button("Silent aim", function()
+    --FE Simple AimLock Script | Released Nov 2021 | Working.
+    local Area = game:GetService("Workspace")
+    local RunService = game:GetService("RunService")
+    local UIS = game:GetService("UserInputService")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local MyCharacter = LocalPlayer.Character
+    local MyRoot = MyCharacter:FindFirstChild("HumanoidRootPart")
+    local MyHumanoid = MyCharacter:FindFirstChild("Humanoid")
+    local Mouse = LocalPlayer:GetMouse()
+    local MyView = Area.CurrentCamera
+    local MyTeamColor = LocalPlayer.TeamColor
+    local HoldingM2 = false
+    local Active = false
+    local Lock = false
+    local Epitaph = .187 ---Note: The Bigger The Number, The More Prediction.
+    local HeadOffset = Vector3.new(0, .1, 0)
+
+    _G.TeamCheck = false
+    _G.AimPart = "HumanoidRootPart"
+    _G.Sensitivity = 0
+    _G.CircleSides = 64
+    _G.CircleColor = Color3.fromRGB(255, 0, 130)
+    _G.CircleTransparency = 0
+    _G.CircleRadius = 200
+    _G.CircleFilled = false
+    _G.CircleVisible = true
+    _G.CircleThickness = 1
+
+    local FOVCircle = Drawing.new("Circle")
+    FOVCircle.Position = Vector2.new(MyView.ViewportSize.X / 2, MyView.ViewportSize.Y / 2)
+    FOVCircle.Radius = _G.CircleRadius
+    FOVCircle.Filled = _G.CircleFilled
+    FOVCircle.Color = _G.CircleColor
+    FOVCircle.Visible = _G.CircleVisible
+    FOVCircle.Transparency = _G.CircleTransparency
+    FOVCircle.NumSides = _G.CircleSides
+    FOVCircle.Thickness = _G.CircleThickness
+
+    local function CursorLock()
+        UIS.MouseBehavior = Enum.MouseBehavior.LockCenter
+    end
+    local function UnLockCursor()
+        HoldingM2 = false Active = false Lock = false 
+        UIS.MouseBehavior = Enum.MouseBehavior.Default
+    end
+    function FindNearestPlayer()
+        local dist = math.huge
+        local Target = nil
+        for _, v in pairs(Players:GetPlayers()) do
+            if v ~= LocalPlayer and v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") and v then
+                local TheirCharacter = v.Character
+                local CharacterRoot, Visible = MyView:WorldToViewportPoint(TheirCharacter[_G.AimPart].Position)
+                if Visible then
+                    local RealMag = (Vector2.new(Mouse.X, Mouse.Y) - Vector2.new(CharacterRoot.X, CharacterRoot.Y)).Magnitude
+                    if RealMag < dist and RealMag < FOVCircle.Radius then
+                        dist = RealMag
+                        Target = TheirCharacter
+                    end
+                end
+            end
+        end
+        return Target
+    end
+
+    UIS.InputBegan:Connect(function(Input)
+        if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+            HoldingM2 = true
+            Active = true
+            Lock = true
+            if Active then
+                local The_Enemy = FindNearestPlayer()
+                while HoldingM2 do task.wait(.000001)
+                    if Lock and The_Enemy ~= nil then
+                        local Future = The_Enemy.HumanoidRootPart.CFrame + (The_Enemy.HumanoidRootPart.Velocity * Epitaph + HeadOffset)
+                        MyView.CFrame = CFrame.lookAt(MyView.CFrame.Position, Future.Position)
+                        CursorLock()
+                    end
+                end
+            end
+        end
+    end)
+    UIS.InputEnded:Connect(function(Input)
+        if Input.UserInputType == Enum.UserInputType.MouseButton2 then
+            UnLockCursor()
+        end
+    end)
+    game.StarterGui:SetCore("SendNotification", {Title = "Working.", Text = "Success, Script Loaded.", Duration = 4,})
+end) 
+com:Button("Esp", function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/WRD ESP.txt"))()
+end) 
+com:Button("Hitboxes", function()
+    local Player = game:GetService("Players").LocalPlayer
+    game:GetService("RunService").Stepped:connect(function()
+        for i,v in pairs (game:GetService("Players"):GetChildren()) do
+            if v.TeamColor ~= Player.TeamColor and v.Name ~= Player.Name then
+                v.Character.HumanoidRootPart.Size = Vector3.new(5,8,5)
+                v.Character.HumanoidRootPart.Material = "Neon"
+                v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really red")
+                v.Character.HumanoidRootPart.Transparency = 0.5
+            elseif v.TeamColor ~= Player.TeamColor and v.Name == "Pet_AtorAltAccount" then
+                v.Character.HumanoidRootPart.Size = Vector3.new(3,5,3)
+                v.Character.HumanoidRootPart.Material = "Neon"
+                v.Character.HumanoidRootPart.BrickColor = BrickColor.new("New Yeller")
+                v.Character.HumanoidRootPart.Transparency = 0.5
+            end
+        end
+    end)
+end) 
+com:Button("Crosshair", function()
+    circle = Drawing.new("Circle")
+    circle.Position = Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2, workspace.CurrentCamera.ViewportSize.Y / 2)
+    circle.Color = Color3.fromRGB(255, 255, 255)
+    circle.Thickness = 0.1
+    circle.NumSides = 12
+    circle.Radius = 5
+    circle.Visible = true
+    circle.Filled = true
+end) 
+com:Button("Autoclicker", function()
+    lib:Notification("Notification", "Click V to start it and B to lock your mouse and it can also be used for guns to shoot faster! and click V to stop it", "OK")
+    getgenv().Settings = {
+        ["Auto Click Keybind"] = "V", -- Use an UpperCase letter or KeyCode Enum. Ex: Enum.KeyCode.Semicolon
+        ["Lock Mouse Position Keybind"] = "B",
+        ["Right Click"] = false,
+        ["GUI"] = true, -- A drawing gui that tells you what is going on with the autoclicker.
+        ["Delay"] = 0 -- 0 for RenderStepped, other numbers go to regular wait timings.
+    }
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BimbusCoder/Script/main/Auto%20Clicker.lua"))()
+end) 
+local com = win:Tab("Teleports")
+com:Button("Guard room", function()
+    local CFrameEnd = CFrame.new(-10.7673559, 78.7499771, 156.293991, -0.887015462, 1.7189528e-08, -0.461739719, 2.16869154e-08, 1, -4.4334536e-09, 0.461739719, -1.39462522e-08, -0.887015462) -- Place your coords in here
+    local Time = 7 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Out prison", function()
+    local CFrameEnd = CFrame.new(-11.0435371, 76.2499847, 440.016693, 0.989753485, -9.21065268e-09, -0.142786697, 6.96626268e-09, 1, -1.62183902e-08, 0.142786697, 1.50575179e-08, 0.989753485) -- Place your coords in here
+    local Time = 20 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Med Center", function()
+    local CFrameEnd = CFrame.new(-765.502686, 32.2500458, 521.525269, 0.0337020233, -4.83982454e-08, -0.999431908, 7.04370295e-09, 1, -4.81882338e-08, 0.999431908, -5.41566081e-09, 0.0337020233) -- Place your coords in here
+    local Time = 50  -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Tower", function()
+    local CFrameEnd = CFrame.new(202.059296, 97.500473, 171.37471, 0.393419147, -3.82245208e-11, -0.919359207, 2.38565452e-11, 1, -3.13684773e-11, 0.919359207, -9.59177529e-12, 0.393419147) -- Place your coords in here
+    local Time = 7 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Lunch room", function()
+    local CFrameEnd = CFrame.new(-53.2488899, 83.961998, 45.9361076, -0.808997452, 5.20162935e-08, 0.587812424, 1.37116901e-10, 1, -8.83025635e-08, -0.587812424, -7.13558848e-08, -0.808997452) -- Place your coords in here
+    local Time = 7 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Crim base", function()
+    local CFrameEnd = CFrame.new(-2.36822867, 75.7500305, 979.778748, 0.469527572, -3.76820175e-08, -0.882917821, 2.51236827e-08, 1, -2.93184197e-08, 0.882917821, -8.41634051e-09, 0.469527572) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Gas station", function()
+    local CFrameEnd = CFrame.new(-860.532349, 31.7501106, 575.769653, 0.565395176, 8.7702297e-08, -0.824820161, -4.72581121e-08, 1, 7.39346504e-08, 0.824820161, -2.82284862e-09, 0.565395176) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Apartments", function()
+    local CFrameEnd = CFrame.new(-847.407043, 32.2500267, 480.519409, -0.419476926, -8.63597833e-08, -0.907765985, -5.45377716e-08, 1, -6.99326108e-08, 0.907765985, 2.01724184e-08, -0.419476926) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+local com = win:Tab("Item tps")
+com:Button("Ak47 + shotgun", function()
+    local CFrameEnd = CFrame.new(-2.06725621, 79.3099365, 991.540283, -0.996857226, -1.88097538e-08, -0.079218857, -2.33615527e-08, 1, 5.65317322e-08, 0.079218857, 5.82047441e-08, -0.996857226) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("M60", function()
+    local CFrameEnd = CFrame.new(-746.770874, 32.098423, 438.347961, -0.640005112, -7.38819317e-09, 0.768370628, 1.8255962e-10, 1, 9.76746328e-09, -0.768370628, 6.39150022e-09, -0.640005112) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Mini gun", function()
+    local CFrameEnd = CFrame.new(-795.914612, 32.3798714, 140.828827, -0.879886925, 3.29906813e-09, -0.4751831, 2.43157867e-08, 1, -3.80823195e-08, 0.4751831, -4.50625848e-08, -0.879886925) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("M1 Carbine", function()
+    local CFrameEnd = CFrame.new(-750.702332, 35.4361534, -36.1419868, -0.577201009, -1.54328283e-08, 0.816602111, -5.77231738e-08, 1, -2.19017871e-08, -0.816602111, -5.97785998e-08, -0.577201009) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("FAL", function()
+    local CFrameEnd = CFrame.new(-746.31311, 35.2500343, -30.5357723, -0.999996781, -3.1673359e-08, -0.00253485469, -3.13343733e-08, 1, -1.3376912e-07, 0.00253485469, -1.33689269e-07, -0.999996781) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Quad lancher", function()
+    local CFrameEnd = CFrame.new(-883.484253, 19.6499958, -369.01297, 0.997633696, -1.78513329e-08, 0.0687678009, 1.49538852e-08, 1, 4.26479367e-08, -0.0687678009, -4.15186072e-08, 0.997633696) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Tec 9", function()
+    local CFrameEnd = CFrame.new(-0.940567672, 78.7087173, 970.638733, 0.358061463, 0, -0.933697939, 0, 1, 0, 0.933697939, 0, 0.358061463) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Baseball bat", function()
+    local CFrameEnd = CFrame.new(-1.52398729, 78.7200012, 994.518982, 0.706523597, -2.73912022e-08, -0.707689464, 1.00912052e-08, 1, -2.86305344e-08, 0.707689464, 1.30867086e-08, 0.706523597) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("Hammer", function()
+    local CFrameEnd = CFrame.new(148.229767, 76.2499695, 188.954971, -0.0625435933, -3.2298189e-08, 0.998042226, -9.5648474e-08, 1, 2.63676121e-08, -0.998042226, -9.38120905e-08, -0.0625435933) -- Place your coords in here
+    local Time = 5 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+com:Button("M9", function()
+    local CFrameEnd = CFrame.new(-768.827454, 34.9376068, 290.19516, -0.989399552, 2.94662268e-08, 0.145219654, 2.60567639e-08, 1, -2.5380011e-08, -0.145219654, -2.1327013e-08, -0.989399552) -- Place your coords in here
+    local Time = 50 -- Time in seconds
+    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = CFrameEnd})
+    tween:Play()
+    tween.Completed:Wait()
+end) 
+local com = win:Tab("Settings")
+com:Colorpicker("Change UI Color",Color3.fromRGB(44, 120, 224), function(t)
+    lib:ChangePresetColor(Color3.fromRGB(t.R * 255, t.G * 255, t.B * 255))
+end)
+com:Button("Destroy GUI", function()
+    game:GetService("CoreGui").ui:Destroy()
+end)
+com:Button("Rejoin", function()
+    game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end) 
+com:Button("Discord invite", function()
+    setclipboard("https://discord.gg/zXp3CyWR")
+    lib:Notification("Notification", "Copied", "OK"
+end)
